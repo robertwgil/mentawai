@@ -7,7 +7,7 @@
     </parent>
     <groupId>me.soliveirajr</groupId>
     <artifactId>mentawai</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1</version>
     <name>Mentawai 3 Web Framework</name>
     <description>A Java full-stack web framework with programmatic configuration instead of XML and Annotations.</description>
     <url>http://www.mentaframework.org</url>
