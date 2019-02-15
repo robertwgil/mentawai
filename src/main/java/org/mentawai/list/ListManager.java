@@ -42,7 +42,6 @@ public class ListManager {
 	
 	private static final String SEP = File.separator;
 	public static String LIST_DIR = "lists";
-	private static final String FULLDIR = ApplicationManager.getRealPath();
 	
 	private static Map<String, ListData> lists = new HashMap<String, ListData>();
 	
@@ -59,6 +58,8 @@ public class ListManager {
 	 * @throws IOException
 	 */
 	public static void init() throws IOException {
+	    
+	    String FULLDIR = ApplicationManager.getRealPath();
 		
 		String listDir = LIST_DIR.replace('\\', File.separatorChar).replace('/', File.separatorChar);
 		
