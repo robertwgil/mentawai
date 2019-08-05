@@ -18,6 +18,7 @@
  */
 package org.mentawai.message;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ import java.util.Map;
  *
  * @author Sergio Oliveira
  */
-public interface Message {
+public interface Message extends Serializable {
 
     /**
      * Gets the unique ID of this message.

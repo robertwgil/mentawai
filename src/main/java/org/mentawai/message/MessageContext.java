@@ -18,12 +18,13 @@
  */
 package org.mentawai.message;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 /**
  * @author Sergio Oliveira
  */
-public interface MessageContext {
+public interface MessageContext extends Serializable {
     
     public String getMessage(String id, Locale loc);
     

@@ -33,6 +33,11 @@ import org.mentawai.list.ListManager;
  */
 public abstract class AbstractMessage implements Message {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static final String TOKEN_MARKER = "%";
    
    private static final String LIST_MARKER = "@";
