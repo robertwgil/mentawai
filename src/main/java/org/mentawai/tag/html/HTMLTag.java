@@ -95,18 +95,22 @@ public abstract class HTMLTag extends PrintTag {
         
         if (extra == null) return "";
         
-        StringBuffer sb = new StringBuffer(512);
+        StringBuilder sb = new StringBuilder(128);
         
         String[] s = extra.split("\\" + separator);
         
         for(int i=0;i<s.length;i++) {
             
-            String[] ss = s[i].split("=");
-            
-            if (ss.length != 2) continue;
-            
-            sb.append(" ").append(ss[0].trim()).append("=\"").append(ss[1].trim()).append('"');
-            
+        	String e = s[i];
+        	
+        	if(!e.contains("="))  continue;
+        		
+        	sb.append(" ")
+        		.append(e.subSequence(0, e.indexOf("=")))
+        		.append("=\"")
+        		.append( e.substring(e.indexOf("=")+1, e.length()).trim() )
+        		.append('"');
+        	
         }
         
         return sb.toString();
