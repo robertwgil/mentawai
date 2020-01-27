@@ -24,6 +24,7 @@ import java.util.Iterator;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.Tag;
 
+import org.apache.commons.lang.StringUtils;
 import org.mentawai.core.BaseAction;
 import org.mentawai.core.Input;
 import org.mentawai.core.Output;
@@ -90,6 +91,27 @@ public abstract class HTMLTag extends PrintTag {
 		return v.replace("name=\"" + name, fieldName.toString());
 		
     }
+    
+//    protected String getExtraAttributes() {
+//        
+//        if (extra == null) return "";
+//        
+//        StringBuffer sb = new StringBuffer(512);
+//        
+//        String[] s = extra.split("\\" + separator);
+//        
+//        for(int i=0;i<s.length;i++) {
+//            
+//            String[] ss = s[i].split("=");
+//            
+//            if (ss.length != 2) continue;
+//            
+//            sb.append(" ").append(ss[0].trim()).append("=\"").append(ss[1].trim()).append('"');
+//            
+//        }
+//        
+//        return sb.toString();
+//    }
 
     protected String getExtraAttributes() {
         
@@ -104,7 +126,11 @@ public abstract class HTMLTag extends PrintTag {
         	String e = s[i];
         	
         	if(!e.contains("="))  continue;
-        		
+        	
+        	String value = e.substring(e.indexOf("=")+1, e.length()).trim();
+        	
+        	if(StringUtils.isEmpty(value)) continue;
+        	
         	sb.append(" ")
         		.append(e.subSequence(0, e.indexOf("=")))
         		.append("=\"")

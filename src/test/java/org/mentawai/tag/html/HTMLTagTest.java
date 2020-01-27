@@ -40,5 +40,23 @@ public class HTMLTagTest {
 		input.setExtra("readonly=readonly##checked=checked##onclick=functionX('parx','=123');");
 		Assert.assertEquals(" readonly=\"readonly\" checked=\"checked\" onclick=\"functionX('parx','=123');\"", input.getExtraAttributes());
 	}
+	
+	@Test
+	public void testGetExtraAttributesCustomSeparatorValueVazio() {
+
+		Input input = new Input();
+		input.setSeparator("##");
+		input.setExtra("readonly=readonly");
+		Assert.assertEquals(" readonly=\"readonly\"", input.getExtraAttributes());
+		
+		input.setExtra("readonly=readonly##checked=checked");
+		Assert.assertEquals(" readonly=\"readonly\" checked=\"checked\"", input.getExtraAttributes());
+		
+		input.setExtra("readonly=readonly##checked=checked##onclick=functionX('parx');##disabled=");
+		Assert.assertEquals(" readonly=\"readonly\" checked=\"checked\" onclick=\"functionX('parx');\"", input.getExtraAttributes());
+		
+		input.setExtra("readonly=readonly##checked=checked##onclick=functionX('parx','=123');");
+		Assert.assertEquals(" readonly=\"readonly\" checked=\"checked\" onclick=\"functionX('parx','=123');\"", input.getExtraAttributes());
+	}
 
 }
