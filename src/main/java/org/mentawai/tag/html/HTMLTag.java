@@ -91,27 +91,7 @@ public abstract class HTMLTag extends PrintTag {
 		return v.replace("name=\"" + name, fieldName.toString());
 		
     }
-    
-//    protected String getExtraAttributes() {
-//        
-//        if (extra == null) return "";
-//        
-//        StringBuffer sb = new StringBuffer(512);
-//        
-//        String[] s = extra.split("\\" + separator);
-//        
-//        for(int i=0;i<s.length;i++) {
-//            
-//            String[] ss = s[i].split("=");
-//            
-//            if (ss.length != 2) continue;
-//            
-//            sb.append(" ").append(ss[0].trim()).append("=\"").append(ss[1].trim()).append('"');
-//            
-//        }
-//        
-//        return sb.toString();
-//    }
+
 
     protected String getExtraAttributes() {
         
@@ -134,7 +114,7 @@ public abstract class HTMLTag extends PrintTag {
         	sb.append(" ")
         		.append(e.subSequence(0, e.indexOf("=")))
         		.append("=\"")
-        		.append( e.substring(e.indexOf("=")+1, e.length()).trim() )
+        		.append( value )
         		.append('"');
         	
         }
